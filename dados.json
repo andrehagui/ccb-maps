@@ -1,0 +1,111 @@
+[
+  {
+    "nome": "ANJO-SHI",
+    "provincia": "AICHI-KEN",
+    "tipo": "endereco_fixo",
+    "endereco": "Anjo-shi Akamatsu-cho Nishishimo 40, Aichi 446-0046, Japan",
+    "lat": 34.934402,
+    "lng": 137.056439,
+    "tem_mapa": true
+  },
+
+  {
+    "nome": "NAGOYA-SHI",
+    "provincia": "AICHI-KEN",
+    "tipo": "salao_alternativo",
+    "endereco": "Consultar o ministério",
+    "lat": null,
+    "lng": null,
+    "tem_mapa": false
+  },
+
+  {
+    "nome": "TOYOHASHI-SHI",
+    "provincia": "AICHI-KEN",
+    "tipo": "endereco_fixo",
+    "endereco": "Toyohashi-shi Owaki-cho Owaki 20-4, Aichi 441-0000, Japan",
+    "lat": 34.7692,
+    "lng": 137.3915,
+    "tem_mapa": true
+  },
+
+  {
+    "nome": "KASHIWA-SHI",
+    "provincia": "CHIBA-KEN",
+    "tipo": "endereco_fixo",
+    "endereco": "Kashiwa-shi Kashiwa 3 chome 7-21, Chiba 277-0005, Japan",
+    "lat": 35.8623,
+    "lng": 139.9711,
+    "tem_mapa": true
+  },
+
+  {
+    "nome": "KAKAMIGAHARA-SHI",
+    "provincia": "GIFU-KEN",
+    "tipo": "endereco_fixo",
+    "endereco": "Kakamigahara-shi Nakasakura Machi 1 chome 19, Gifu 504-0912, Japan",
+    "lat": 35.3989,
+    "lng": 136.8486,
+    "tem_mapa": true
+  },
+
+  {
+    "nome": "OTA-SHI",
+    "provincia": "GUNMA-KEN",
+    "tipo": "endereco_fixo",
+    "endereco": "Ota-shi Kamitajima-cho 388-2, Gunma 373-0044, Japan",
+    "lat": 36.3001,
+    "lng": 139.3758,
+    "tem_mapa": true
+  },
+
+  {
+    "nome": "FUKUYAMA-SHI",
+    "provincia": "HIROSHIMA-KEN",
+    "tipo": "endereco_fixo",
+    "endereco": "Fukuyama-shi Matsunaga-cho 3 chome 3-18, Hiroshima 729-0104, Japan",
+    "lat": 34.4502,
+    "lng": 133.2551,
+    "tem_mapa": true
+  },
+
+  {
+    "nome": "SHIWA-CHO",
+    "provincia": "HIROSHIMA-KEN",
+    "tipo": "endereco_fixo",
+    "endereco": "Higashi Hiroshima-shi Shiwa-cho Shiwa-Higashi 4454-1, Hiroshima 739-0262, Japan",
+    "lat": 34.5003,
+    "lng": 132.7139,
+    "tem_mapa": true
+  },
+
+  {
+    "nome": "TSUKUBAMIRAI-SHI",
+    "provincia": "IBARAKI-KEN",
+    "tipo": "endereco_fixo",
+    "endereco": "Tsukubamirai-shi Hososhiro 730-1, Ibaraki 300-2446, Japan",
+    "lat": 35.9992,
+    "lng": 140.0273,
+    "tem_mapa": true
+  },
+
+  {
+    "nome": "AIKO-GUN",
+    "provincia": "KANAGAWA-KEN",
+    "tipo": "endereco_fixo",
+    "endereco": "Aiko-gun Aikawa-Machi 3 chome 6-18, Kanagawa 243-0302, Japan",
+    "lat": 35.5322,
+    "lng": 139.3217,
+    "tem_mapa": true
+  },
+
+  {
+    "nome": "KAMEYAMA-SHI",
+    "provincia": "MIE-KEN",
+    "tipo": "endereco_fixo",
+    "endereco": "Kameyama-shi Wakayama-cho 7-10, Mie 519-0151, Japan",
+    "lat": 34.8583,
+    "lng": 136.4512,
+    "tem_mapa": true
+  }
+]

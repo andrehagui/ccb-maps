@@ -1,0 +1,143 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    overflow:hidden;
+}
+
+#map{
+    width:100%;
+    height:100vh;
+}
+
+.search-box{
+    position:absolute;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:1000;
+    width:90%;
+    max-width:500px;
+}
+
+.search-box input{
+    width:100%;
+    padding:16px 20px;
+    border:none;
+    border-radius:20px;
+    font-size:16px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.bottom-menu{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:70px;
+    background:white;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+
+    box-shadow:0 -2px 10px rgba(0,0,0,0.15);
+}
+
+.menu-item{
+    text-align:center;
+    font-size:14px;
+    color:#444;
+}
+
+.menu-item span{
+    display:block;
+    font-size:24px;
+}
+
+.location-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 160px;
+    z-index: 2000;
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    cursor: pointer;
+}
+
+
+.bottom-sheet {
+    position: absolute;
+    left: 0;
+    bottom: 70px;
+    width: 100%;
+    background: rgb(252, 251, 251);
+    z-index: 1000;
+    padding: 20px;
+    padding-top: 50px;
+    border-radius: 25px 25px 0 0;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+    transform: translateY(120%);
+    transition: 0.3s ease;
+    overflow: visible;
+}
+
+.bottom-sheet.active {
+    transform: translateY(0);
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.buttons a {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    background: #1a73e8;
+    color: white;
+    font-weight: bold;
+}
+.location-btn {
+    position: absolute;
+    right: 20px;
+    bottom: 90px;
+    z-index: 2000;
+    width: 55px;
+    height: 55px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    cursor: pointer;
+}
+.close-sheet {
+    position: fixed;
+    right: 18px;
+    bottom: 210px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: red;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 99999;
+}

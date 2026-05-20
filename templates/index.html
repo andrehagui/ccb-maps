@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>CCB Maps</title>
+
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
+
+    <link rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
+
+    <link rel="stylesheet"
+    href="/static/style.css">
+
+</head>
+
+<body>
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Buscar igreja, cidade ou endereço...">
+
+    </div>
+
+    <button id="btnLocation" class="location-btn">
+        📍
+    </button>
+
+    <div id="map"></div>
+
+    <div id="bottomSheet" class="bottom-sheet">
+
+        <button id="closeSheet" class="close-sheet">✕</button>
+
+        <h2 id="bsNome">
+            Nome
+        </h2>
+
+        <p id="bsProvincia">
+            Província
+        </p>
+
+        <p id="bsEndereco">
+            Endereço
+        </p>
+
+        <div class="buttons">
+
+            <a id="bsGoogle" target="_blank">
+                Google Maps
+            </a>
+
+            <a id="bsApple" target="_blank">
+                Apple Maps
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="bottom-menu">
+
+        <div class="menu-item">
+            <span>🗺️</span>
+            <p>Mapa</p>
+        </div>
+
+        <div class="menu-item">
+            <span>⭐</span>
+            <p>Favoritos</p>
+        </div>
+
+        <div class="menu-item">
+            <span>⚙️</span>
+            <p>Config</p>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+    <script src="/static/app.js"></script>
+
+</body>
+</html>
