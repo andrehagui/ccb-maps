@@ -5,9 +5,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const markers = L.markerClusterGroup();
+
 let marcadores = [];
 
 function calcularDistancia(lat1, lon1, lat2, lon2) {
+
     const R = 6371;
 
     const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -25,12 +27,30 @@ function calcularDistancia(lat1, lon1, lat2, lon2) {
     return R * c;
 }
 
-function abrirBottomSheet(igreja) {
+function abrirBottomSheet(igreja, distancia = null) {
+
     const sheet = document.getElementById("bottomSheet");
 
-    document.getElementById("bsNome").innerText = igreja.nome;
-    document.getElementById("bsProvincia").innerText = igreja.provincia;
-    document.getElementById("bsEndereco").innerText = igreja.endereco;
+    if (distancia !== null) {
+
+        document.getElementById("bsNome").innerHTML =
+            `⛪ Igreja mais próxima: ${igreja.nome}`;
+
+        document.getElementById("bsProvincia").innerHTML =
+            `${igreja.provincia} • ${distancia.toFixed(1)} km`;
+
+    } else {
+
+        document.getElementById("bsNome").innerText =
+            igreja.nome;
+
+        document.getElementById("bsProvincia").innerText =
+            igreja.provincia;
+
+    }
+
+    document.getElementById("bsEndereco").innerText =
+        igreja.endereco;
 
     document.getElementById("bsGoogle").href =
         `https://www.google.com/maps?q=${igreja.lat},${igreja.lng}`;
@@ -54,7 +74,9 @@ fetch("/dados")
             const marker = L.marker([igreja.lat, igreja.lng]);
 
             marker.on("click", function () {
+
                 abrirBottomSheet(igreja);
+
             });
 
             markers.addLayer(marker);
@@ -76,37 +98,92 @@ fetch("/dados")
     });
 
 const searchInput = document.getElementById("search");
+const resultsList = document.getElementById("resultsList");
 
 searchInput.addEventListener("keyup", function () {
-    const texto = searchInput.value.toLowerCase();
 
-    marcadores.forEach(item => {
-        if (
-            item.nome.includes(texto) ||
-            item.provincia.includes(texto) ||
-            item.endereco.includes(texto)
-        ) {
-            map.setView([item.lat, item.lng], 12);
+    const texto = searchInput.value.toLowerCase().trim();
+
+    resultsList.innerHTML = "";
+
+    if (texto.length === 0) {
+
+        resultsList.style.display = "none";
+        return;
+
+    }
+
+    const resultados = marcadores.filter(item =>
+
+        item.nome.includes(texto) ||
+        item.provincia.includes(texto) ||
+        item.endereco.includes(texto)
+
+    );
+
+    if (resultados.length === 0) {
+
+        resultsList.style.display = "none";
+        return;
+
+    }
+
+    resultados.forEach(item => {
+
+        const div = document.createElement("div");
+
+        div.className = "result-item";
+
+        div.innerHTML = `
+            <strong>${item.dados.nome}</strong>
+            <span>
+                ${item.dados.provincia} -
+                ${item.dados.endereco}
+            </span>
+        `;
+
+        div.addEventListener("click", function () {
+
+            map.setView([item.lat, item.lng], 14);
+
             item.marker.fire("click");
-        }
+
+            resultsList.style.display = "none";
+
+            searchInput.value = item.dados.nome;
+
+        });
+
+        resultsList.appendChild(div);
+
     });
+
+    resultsList.style.display = "block";
+
 });
 
 const btnLocation = document.getElementById("btnLocation");
 
 btnLocation.addEventListener("click", function () {
+
     if (!navigator.geolocation) {
+
         alert("Seu navegador não suporta localização.");
+
         return;
+
     }
 
     navigator.geolocation.getCurrentPosition(
+
         function (position) {
+
             const lat = position.coords.latitude;
             const lng = position.coords.longitude;
-            const accuracy = position.coords.accuracy;
 
             map.setView([lat, lng], 14);
+
+            const accuracy = position.coords.accuracy;
 
             L.marker([lat, lng])
                 .addTo(map)
@@ -127,6 +204,7 @@ btnLocation.addEventListener("click", function () {
             let menorDistancia = Infinity;
 
             marcadores.forEach(item => {
+
                 const distancia = calcularDistancia(
                     lat,
                     lng,
@@ -135,34 +213,58 @@ btnLocation.addEventListener("click", function () {
                 );
 
                 if (distancia < menorDistancia) {
+
                     menorDistancia = distancia;
                     igrejaMaisProxima = item;
+
                 }
+
             });
 
             if (igrejaMaisProxima) {
-                alert(
-                    `Igreja mais próxima:\n\n` +
-                    `${igrejaMaisProxima.dados.nome}\n` +
-                    `${menorDistancia.toFixed(1)} km`
+
+                map.setView(
+                    [
+                        igrejaMaisProxima.lat,
+                        igrejaMaisProxima.lng
+                    ],
+                    14
                 );
+
+                abrirBottomSheet(
+                    igrejaMaisProxima.dados,
+                    menorDistancia
+                );
+
             }
+
         },
+
         function () {
+
             alert("Não foi possível acessar sua localização.");
+
         },
+
         {
             enableHighAccuracy: true,
             timeout: 10000,
             maximumAge: 0
         }
+
     );
+
 });
 
 const closeSheet = document.getElementById("closeSheet");
 
 if (closeSheet) {
+
     closeSheet.addEventListener("click", function () {
-        document.getElementById("bottomSheet").classList.remove("active");
+
+        document.getElementById("bottomSheet")
+            .classList.remove("active");
+
     });
+
 }

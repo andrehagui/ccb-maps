@@ -81,15 +81,13 @@ body{
     left: 0;
     bottom: 70px;
     width: 100%;
-    background: rgb(252, 251, 251);
-    z-index: 1000;
+    background: white;
+    z-index: 2000;
     padding: 20px;
-    padding-top: 50px;
     border-radius: 25px 25px 0 0;
     box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
     transform: translateY(120%);
     transition: 0.3s ease;
-    overflow: visible;
 }
 
 .bottom-sheet.active {
@@ -115,8 +113,8 @@ body{
 .location-btn {
     position: absolute;
     right: 20px;
-    bottom: 140px;
-    z-index: 2000;
+    bottom: 160px;
+    z-index: 1500;
     width: 55px;
     height: 55px;
     border: none;
@@ -140,4 +138,41 @@ body{
     font-weight: bold;
     cursor: pointer;
     z-index: 99999;
+}
+.results-list {
+    position: absolute;
+    top: 85px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    background: white;
+    z-index: 2500;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: none;
+}
+
+.result-item {
+    padding: 14px 16px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item strong {
+    display: block;
+    font-size: 16px;
+}
+
+.result-item span {
+    font-size: 13px;
+    color: #666;
+}
+.leaflet-top.leaflet-left {
+    top: 90px;
 }
