@@ -184,10 +184,10 @@ body{
     }
 
     .bottom-sheet h2 {
-        font-size: 26px;
+        font-size: 22px;
         line-height: 1.1;
-        margin-right: 60px;
-    }
+        margin-right: 70px;
+        word-break: break-word;   }
 
     .bottom-sheet p {
         font-size: 18px;
@@ -201,8 +201,8 @@ body{
 
     .close-sheet {
         position: absolute;
-        right: 22px;
-        top: 22px;
+        right: 18px;
+        top: 18px;
         width: 52px;
         height: 52px;
         border-radius: 50%;
@@ -211,5 +211,7 @@ body{
         color: white;
         font-size: 30px;
         font-weight: bold;
+        z-index: 3000;
+
     }
 }
