@@ -1,81 +1,228 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
+
+    <!-- ========================================= -->
+    <!-- META TAGS -->
+    <!-- ========================================= -->
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-    content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Mapa das igrejas da CCB com busca e localização."
+    >
+
+    <meta
+        name="theme-color"
+        content="#ffffff"
+    >
 
     <title>CCB Maps</title>
 
-    <link rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <!-- ========================================= -->
+    <!-- PRECONNECT -->
+    <!-- ========================================= -->
 
-    <link rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
+    <link
+        rel="preconnect"
+        href="https://unpkg.com"
+    >
 
-    <link rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
+    <!-- ========================================= -->
+    <!-- LEAFLET CSS -->
+    <!-- ========================================= -->
 
-    <link rel="stylesheet"
-    href="/static/style.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet/dist/leaflet.css"
+    >
+
+    <!-- ========================================= -->
+    <!-- MARKER CLUSTER CSS -->
+    <!-- ========================================= -->
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"
+    >
+
+    <!-- ========================================= -->
+    <!-- CSS DO PROJETO -->
+    <!-- ========================================= -->
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
 
 </head>
 
 <body>
 
+    <!-- ========================================= -->
+    <!-- LOADING -->
+    <!-- ========================================= -->
+
+    <div id="loading" class="loading">
+        Carregando mapa...
+    </div>
+
+    <!-- ========================================= -->
+    <!-- BUSCA -->
+    <!-- ========================================= -->
+
     <div class="search-box">
 
-        <input type="text" id="search" placeholder="Buscar igreja, cidade ou endereço...">
+        <input
+            type="text"
+            id="search"
+            placeholder="Buscar igreja, cidade ou endereço..."
+            autocomplete="off"
+            aria-label="Buscar igreja"
+        >
 
     </div>
 
-    <div id="resultsList" class="results-list"></div>
+    <!-- ========================================= -->
+    <!-- RESULTADOS -->
+    <!-- ========================================= -->
 
-    <button id="btnLocation" class="location-btn">
+    <div
+        id="resultsList"
+        class="results-list"
+    ></div>
+
+    <!-- ========================================= -->
+    <!-- BOTÃO LOCALIZAÇÃO -->
+    <!-- ========================================= -->
+
+    <button
+        id="btnLocation"
+        class="location-btn"
+        aria-label="Encontrar igreja mais próxima"
+    >
         📍
     </button>
 
-    <div id="map"></div>
+    <!-- ========================================= -->
+    <!-- MAPA -->
+    <!-- ========================================= -->
 
-    <div id="bottomSheet" class="bottom-sheet">
-        <button id="closeSheet" class="close-sheet">×</button>
+    <main id="map"></main>
+
+    <!-- ========================================= -->
+    <!-- BOTTOM SHEET -->
+    <!-- ========================================= -->
+
+    <div
+        id="bottomSheet"
+        class="bottom-sheet"
+    >
+
+        <button
+            id="closeSheet"
+            class="close-sheet"
+            aria-label="Fechar informações"
+        >
+            ×
+        </button>
 
         <h2 id="bsNome"></h2>
+
         <p id="bsProvincia"></p>
+
         <p id="bsEndereco"></p>
 
         <div class="buttons">
-            <a id="bsGoogle" target="_blank">Google Maps</a>
-            <a id="bsApple" target="_blank">Apple Maps</a>
+
+            <a
+                id="bsGoogle"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Google Maps
+            </a>
+
+            <a
+                id="bsApple"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Apple Maps
+            </a>
+
         </div>
+
     </div>
 
-    <div class="bottom-menu">
+    <!-- ========================================= -->
+    <!-- MENU INFERIOR -->
+    <!-- ========================================= -->
 
-        <div class="menu-item">
+    <nav class="bottom-menu">
+
+        <button class="menu-item">
+
             <span>🗺️</span>
+
             <p>Mapa</p>
-        </div>
 
-        <div class="menu-item">
+        </button>
+
+        <button class="menu-item">
+
             <span>⭐</span>
+
             <p>Favoritos</p>
-        </div>
 
-        <div class="menu-item">
+        </button>
+
+        <button class="menu-item">
+
             <span>⚙️</span>
+
             <p>Config</p>
-        </div>
 
-    </div>
+        </button>
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    </nav>
 
-    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+    <!-- ========================================= -->
+    <!-- LEAFLET JS -->
+    <!-- ========================================= -->
 
-    <script src="/static/app.js"></script>
+    <script
+        src="https://unpkg.com/leaflet/dist/leaflet.js"
+    ></script>
+
+    <!-- ========================================= -->
+    <!-- MARKER CLUSTER -->
+    <!-- ========================================= -->
+
+    <script
+        src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"
+    ></script>
+
+    <!-- ========================================= -->
+    <!-- JS DO PROJETO -->
+    <!-- ========================================= -->
+
+    <script
+        src="{{ url_for('static', filename='app.js') }}"
+    ></script>
 
 </body>
+
 </html>
