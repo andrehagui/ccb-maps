@@ -92,10 +92,10 @@
     "nome": "TSUKUBAMIRAI-SHI",
     "provincia": "IBARAKI-KEN",
     "tipo": "endereco_fixo",
-    "endereco": "Tsukubamirai-shi Yawara 1547-2, Ibaraki 300-2341, Japan",
-    "lat": 36.002536,
-    "lng": 139.979338,
-    "tem_mapa": true
+    "endereco": "茨城県つくばみらい市細代730-1",
+    "lat": null,
+    "lng": null,
+    "tem_mapa": false
   },
 
   {
