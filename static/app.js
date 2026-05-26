@@ -72,7 +72,7 @@ fetch("/dados")
 const searchInput = document.getElementById("search");
 const resultsList = document.getElementById("resultsList");
 
-searchInput.addEventListener("input", function () {
+searchInput.addEventListener("keyup", function () {
     const texto = searchInput.value.toLowerCase().trim();
 
     resultsList.innerHTML = "";
